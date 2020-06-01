@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".MainActivity">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_toLeftOf="@+id/score_layout"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="35dp">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/coin"
+            android:layout_toLeftOf="@id/redteam_coins_text"
+            android:layout_margin="5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="500"
+            android:textColor="#EEFFEB3B"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:id="@+id/redteam_coins_text"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/score_layout"
+        android:background="#59F7F7F7">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100"
+            android:textColor="#EEF44336"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:id="@+id/redteam_life_text"
+            android:layout_margin="5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=":"
+            android:textColor="#EBF3F3F3"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100"
+            android:id="@+id/blueteam_life_text"
+            android:textColor="#F32196F3"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:layout_margin="5dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_toRightOf="@+id/score_layout"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="35dp">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/coin"
+            android:layout_margin="5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="500"
+            android:textColor="#EEFFEB3B"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:id="@+id/blueteam_coins_text"/>
+    </LinearLayout>
+
+
+    <GridView
+        android:layout_width="55dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/redteam_grid"
+        android:numColumns="1"
+        android:verticalSpacing="15dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginBottom="25dp"
+        android:horizontalSpacing="15dp"
+        android:stretchMode="columnWidth"
+        android:background="#A9FF3729"
+        android:layout_centerVertical="true"/>
+
+    <GridView
+        android:layout_width="55dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:id="@+id/blueteam_grid"
+        android:numColumns="1"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="25dp"
+        android:stretchMode="columnWidth"
+        android:horizontalSpacing="15dp"
+        android:verticalSpacing="15dp"
+        android:background="#E62196F3"
+        android:layout_centerVertical="true"/>
+
+</RelativeLayout>
