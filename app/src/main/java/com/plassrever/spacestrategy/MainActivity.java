@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,6 +17,12 @@ public class MainActivity extends AppCompatActivity {
     Dialog storeDialog;
 
     public GameLoop gameLoop = new GameLoop();
+
+    ImageAdapter redAdapter, blueAdapter;
+    StoreItemsAdapter storeAdapter;
+
+    private int selectedPosition;
+    private boolean blueSelected = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +39,12 @@ public class MainActivity extends AppCompatActivity {
         redTeamGrid = findViewById(R.id.redteam_grid);
         blueTeamGrid = findViewById(R.id.blueteam_grid);
 
-        redTeamGrid.setAdapter(new ImageAdapter(this));
-        blueTeamGrid.setAdapter(new ImageAdapter(this));
+        redAdapter = new ImageAdapter(this);
+        blueAdapter = new ImageAdapter(this);
+        storeAdapter = new StoreItemsAdapter(this);
+
+        redTeamGrid.setAdapter(redAdapter);
+        blueTeamGrid.setAdapter(blueAdapter);
 
         redTeamGrid.setOnItemClickListener(redTeamGridOnClickListener);
         blueTeamGrid.setOnItemClickListener(blueTeamGridOnClickListener);
@@ -45,6 +54,9 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            selectedPosition = position;
+            blueSelected = false;
+            storeAdapter.setTeam(blueSelected);
             createStoreDialog();
         }
     };
@@ -53,6 +65,9 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            selectedPosition = position;
+            blueSelected = true;
+            storeAdapter.setTeam(blueSelected);
             createStoreDialog();
         }
     };
@@ -61,14 +76,21 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            Toast.makeText(MainActivity.this, position, Toast.LENGTH_SHORT).show();
+
+            if (blueSelected)
+                blueAdapter.setNewValue(selectedPosition, storeAdapter.blueStore[position]);
+            else
+                redAdapter.setNewValue(selectedPosition, storeAdapter.redStore[position]);
+            redTeamGrid.setAdapter(redAdapter);
+            blueTeamGrid.setAdapter(blueAdapter);
+            storeDialog.cancel();
         }
     };
 
     private void createStoreDialog() {
         storeDialog.setContentView(R.layout.store_dialog);
         storeGrid = storeDialog.findViewById(R.id.grid_dialog2);
-        storeGrid.setAdapter(new StoreAdapter(this));
+        storeGrid.setAdapter(storeAdapter);
         storeGrid.setOnItemClickListener(storeGridOnClickListener);
         storeDialog.show();
     }

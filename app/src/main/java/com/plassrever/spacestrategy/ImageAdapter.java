@@ -42,6 +42,10 @@ public class ImageAdapter extends BaseAdapter {
         return position;
     }
 
+    public void setNewValue(int position, int value) {
+        team[position] = value;
+    }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ImageView imageView;
