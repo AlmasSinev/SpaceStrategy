@@ -3,7 +3,6 @@ package com.plassrever.spacestrategy;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
-import android.icu.text.SymbolTable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,8 +15,9 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView redTeamCoinsText, blueTeamCoinsText;
     private GridView redTeamGrid, blueTeamGrid, storeGrid;
+    private Button pauseButton;
 
-    Dialog storeDialog;
+    Dialog storeDialog, pauseDialog;
 
     public GameLoop gameLoop = new GameLoop();
 
@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         storeDialog = new Dialog(this);
+        pauseDialog = new Dialog(this);
 
         redTeamCoinsText = findViewById(R.id.redteam_coins_text);
         blueTeamCoinsText = findViewById(R.id.blueteam_coins_text);
@@ -51,6 +52,15 @@ public class MainActivity extends AppCompatActivity {
 
         redTeamGrid.setOnItemClickListener(redTeamGridOnClickListener);
         blueTeamGrid.setOnItemClickListener(blueTeamGridOnClickListener);
+
+        pauseButton = findViewById(R.id.btn_pause);
+        pauseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gameLoop.pause();
+                createPauseDialog();
+            }
+        });
     }
 
     private GridView.OnItemClickListener redTeamGridOnClickListener = new GridView.OnItemClickListener(){
@@ -160,5 +170,29 @@ public class MainActivity extends AppCompatActivity {
         // Ошибка: Если закрыть магазин нажатием на свободное пространство - главный цикл игры так и останется на паузе.
 
         storeDialog.show();
+    }
+
+    private void createPauseDialog () {
+        pauseDialog.setContentView(R.layout.pause_dialog);
+        Button btnContinue = pauseDialog.findViewById(R.id.btn_continue);
+        Button btnHome = pauseDialog.findViewById(R.id.btn_home);
+
+        btnContinue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pauseDialog.dismiss();
+                gameLoop.returnGameLoop();
+            }
+        });
+        btnHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Не реализовано", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // Ошибка: Если закрыть меню паузы нажатием на свободное пространство - главный цикл игры так и останется на паузе.
+
+        pauseDialog.show();
     }
 }

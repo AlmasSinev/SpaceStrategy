@@ -128,4 +128,12 @@
         android:background="#E62196F3"
         android:layout_centerVertical="true"/>
 
+    <Button
+        android:layout_width="52dp"
+        android:layout_height="26dp"
+        android:id="@+id/btn_pause"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/pause"/>
+
 </RelativeLayout>
