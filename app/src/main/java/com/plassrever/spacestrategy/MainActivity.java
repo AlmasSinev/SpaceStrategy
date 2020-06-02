@@ -1,15 +1,14 @@
 package com.plassrever.spacestrategy;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -58,22 +57,19 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    private Dialog createStoreDialog2() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-        LayoutInflater inflater = this.getLayoutInflater();
+    private GridView.OnItemClickListener storeGridOnClickListener = new GridView.OnItemClickListener(){
 
-        builder.setView(inflater.inflate(R.layout.store_dialog, null));
-
-        TextView text = findViewById(R.id.coins_dialog2);
-        text.setText("500");
-        return builder.create();
-
-    }
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            Toast.makeText(MainActivity.this, position, Toast.LENGTH_SHORT).show();
+        }
+    };
 
     private void createStoreDialog() {
         storeDialog.setContentView(R.layout.store_dialog);
         storeGrid = storeDialog.findViewById(R.id.grid_dialog2);
         storeGrid.setAdapter(new StoreAdapter(this));
+        storeGrid.setOnItemClickListener(storeGridOnClickListener);
         storeDialog.show();
     }
 }
