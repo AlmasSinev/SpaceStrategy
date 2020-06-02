@@ -28,7 +28,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="500"
+            android:text="300"
             android:textColor="#EEFFEB3B"
             android:textSize="20dp"
             android:textStyle="bold"
@@ -103,32 +103,28 @@
 
 
     <GridView
-        android:layout_width="55dp"
-        android:layout_height="wrap_content"
+        android:layout_width="65dp"
+        android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:id="@+id/redteam_grid"
         android:numColumns="1"
-        android:verticalSpacing="15dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="17dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginBottom="25dp"
-        android:horizontalSpacing="15dp"
+        android:layout_marginBottom="17dp"
         android:stretchMode="columnWidth"
         android:background="#A9FF3729"
         android:layout_centerVertical="true"/>
 
     <GridView
-        android:layout_width="55dp"
-        android:layout_height="wrap_content"
+        android:layout_width="65dp"
+        android:layout_height="match_parent"
         android:layout_alignParentRight="true"
         android:id="@+id/blueteam_grid"
         android:numColumns="1"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="17dp"
         android:layout_marginRight="50dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="17dp"
         android:stretchMode="columnWidth"
-        android:horizontalSpacing="15dp"
-        android:verticalSpacing="15dp"
         android:background="#E62196F3"
         android:layout_centerVertical="true"/>
 

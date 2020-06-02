@@ -14,14 +14,24 @@ public class GameLoop {
             @Override
             public void run() {
 
-                prevCoins = Integer.parseInt(redText.getText().toString());
-                redText.setText(String.valueOf(prevCoins + 1));
+                if (running){
+                    prevCoins = Integer.parseInt(redText.getText().toString());
+                    redText.setText(String.valueOf(prevCoins + 1));
 
-                prevCoins = Integer.parseInt(blueText.getText().toString());
-                blueText.setText(String.valueOf(prevCoins + 1));
+                    prevCoins = Integer.parseInt(blueText.getText().toString());
+                    blueText.setText(String.valueOf(prevCoins + 1));
+                }
 
                 handler.postDelayed(this, 300);
             }
         });
+    }
+
+    public void pause(){
+        running = false;
+    }
+
+    public void returnGameLoop(){
+        running = true;
     }
 }

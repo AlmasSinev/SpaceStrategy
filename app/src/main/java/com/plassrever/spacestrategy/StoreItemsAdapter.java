@@ -68,7 +68,12 @@ public class StoreItemsAdapter extends BaseAdapter {
     }
 
     @Override
-    public long getItemId(int position) {
+    public long getItemId(int value) {
+        int position = -1;
+        for (int i = 0; i < store.length; i++)
+            if (store[i] == value)
+                position = i;
+
         return position;
     }
 

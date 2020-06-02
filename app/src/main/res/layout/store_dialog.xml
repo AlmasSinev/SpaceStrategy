@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:text="0"
             android:id="@+id/coins_dialog2"
-            android:textColor="#fff"
+            android:textColor="#F8E337"
             android:layout_marginRight="15dp"
             android:layout_marginLeft="5dp"
             android:textSize="16dp"/>
