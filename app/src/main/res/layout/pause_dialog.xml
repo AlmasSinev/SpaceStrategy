@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="300dp"
     android:layout_height="wrap_content"
-    android:background="#DA9C27B0"
+    android:background="@drawable/store_dialog_background"
     android:paddingBottom="50dp">
 
     <TextView
@@ -11,22 +11,30 @@
         android:layout_height="wrap_content"
         android:text="PAUSE"
         android:textSize="24dp"
+        android:id="@+id/pause_textview"
         android:textColor="#fff"
         android:layout_gravity="center"
-        android:layout_margin="20dp"/>
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="50dp"/>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="175dp"
+        android:layout_height="50dp"
         android:id="@+id/btn_continue"
-        android:text="Продолжить"
+        android:text="Continue"
+        android:background="@drawable/btn_background"
+        android:textColor="#fff"
+        android:layout_margin="10dp"
         android:layout_gravity="center"/>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="175dp"
+        android:layout_height="50dp"
         android:id="@+id/btn_home"
-        android:text="Выйти в меню"
+        android:layout_margin="10dp"
+        android:text="Home"
+        android:background="@drawable/btn_background"
+        android:textColor="#fff"
         android:layout_gravity="center"/>
 
 </LinearLayout>

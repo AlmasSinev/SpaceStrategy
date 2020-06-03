@@ -36,7 +36,7 @@
             android:layout_gravity="center"
             android:gravity="top"
             android:textColor="#ECDA38"
-            android:textSize="16dp"/>
+            android:textSize="12dp"/>
 
     </LinearLayout>
 

@@ -1,6 +1,7 @@
 package com.plassrever.spacestrategy;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -94,8 +95,11 @@ public class StoreItemsAdapter extends BaseAdapter {
         ImageView imageView = grid.findViewById(R.id.imagepart);
         imageView.setImageResource(store[position]);
 
+
+        Typeface font = Typeface.createFromAsset(mContext.getAssets(), "fonts/ELECT.TTF");
         TextView textView = grid.findViewById(R.id.textpart);
         textView.setText(costs[position]);
+        textView.setTypeface(font);
 
         return grid;
     }

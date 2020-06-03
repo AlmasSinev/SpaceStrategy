@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
+    android:background="@drawable/background_cosmo"
     tools:context=".MainActivity">
 
 
@@ -30,7 +30,9 @@
             android:layout_height="wrap_content"
             android:text="300"
             android:textColor="#EEFFEB3B"
-            android:textSize="20dp"
+            android:textSize="16dp"
+            android:gravity="center"
+            android:layout_gravity="center"
             android:textStyle="bold"
             android:id="@+id/redteam_coins_text"/>
     </LinearLayout>
@@ -42,14 +44,14 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:id="@+id/score_layout"
-        android:background="#59F7F7F7">
+        android:background="#46F7F7F7">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="100"
-            android:textColor="#EEF44336"
-            android:textSize="30dp"
+            android:textColor="#E6F44336"
+            android:textSize="26dp"
             android:textStyle="bold"
             android:id="@+id/redteam_life_text"
             android:layout_margin="5dp"/>
@@ -69,7 +71,7 @@
             android:text="100"
             android:id="@+id/blueteam_life_text"
             android:textColor="#F32196F3"
-            android:textSize="30dp"
+            android:textSize="26dp"
             android:textStyle="bold"
             android:layout_margin="5dp"/>
 
@@ -96,7 +98,9 @@
             android:layout_height="wrap_content"
             android:text="500"
             android:textColor="#EEFFEB3B"
-            android:textSize="20dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="16dp"
             android:textStyle="bold"
             android:id="@+id/blueteam_coins_text"/>
     </LinearLayout>
@@ -112,7 +116,7 @@
         android:layout_marginLeft="50dp"
         android:layout_marginBottom="17dp"
         android:stretchMode="columnWidth"
-        android:background="#A9FF3729"
+        android:background="#90FF3729"
         android:layout_centerVertical="true"/>
 
     <GridView
@@ -125,7 +129,7 @@
         android:layout_marginRight="50dp"
         android:layout_marginBottom="17dp"
         android:stretchMode="columnWidth"
-        android:background="#E62196F3"
+        android:background="#A62196F3"
         android:layout_centerVertical="true"/>
 
     <Button

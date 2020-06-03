@@ -3,6 +3,7 @@ package com.plassrever.spacestrategy;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,9 +12,11 @@ import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 public class MainActivity extends AppCompatActivity {
 
-    private TextView redTeamCoinsText, blueTeamCoinsText;
+    private TextView redTeamCoinsText, blueTeamCoinsText, redTeamLife, blueTeamLife;
     private GridView redTeamGrid, blueTeamGrid, storeGrid;
     private Button pauseButton;
 
@@ -27,16 +30,28 @@ public class MainActivity extends AppCompatActivity {
     private int selectedPosition;
     private boolean blueSelected = false;
 
+    Typeface font;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        font = Typeface.createFromAsset(this.getAssets(), "fonts/ELECT.TTF");
 
         storeDialog = new Dialog(this);
         pauseDialog = new Dialog(this);
 
         redTeamCoinsText = findViewById(R.id.redteam_coins_text);
         blueTeamCoinsText = findViewById(R.id.blueteam_coins_text);
+
+        redTeamLife = findViewById(R.id.redteam_life_text);
+        blueTeamLife = findViewById(R.id.blueteam_life_text);
+
+        redTeamCoinsText.setTypeface(font);
+        blueTeamCoinsText.setTypeface(font);
+        redTeamLife.setTypeface(font);
+        blueTeamLife.setTypeface(font);
 
         gameLoop.addCoinsOfTime(redTeamCoinsText, blueTeamCoinsText);
 
@@ -162,10 +177,15 @@ public class MainActivity extends AppCompatActivity {
         if (blueSelected){
             TextView storeCoins = storeDialog.findViewById(R.id.coins_dialog2);
             storeCoins.setText(blueTeamCoinsText.getText());
+            storeCoins.setTypeface(font);
         } else {
             TextView storeCoins = storeDialog.findViewById(R.id.coins_dialog2);
             storeCoins.setText(redTeamCoinsText.getText());
+            storeCoins.setTypeface(font);
         }
+
+        TextView storeText = storeDialog.findViewById(R.id.store_textview);
+        storeText.setTypeface(font);
 
         // Ошибка: Если закрыть магазин нажатием на свободное пространство - главный цикл игры так и останется на паузе.
 
@@ -176,6 +196,11 @@ public class MainActivity extends AppCompatActivity {
         pauseDialog.setContentView(R.layout.pause_dialog);
         Button btnContinue = pauseDialog.findViewById(R.id.btn_continue);
         Button btnHome = pauseDialog.findViewById(R.id.btn_home);
+        TextView textPause = pauseDialog.findViewById(R.id.pause_textview);
+
+        textPause.setTypeface(font);
+        btnContinue.setTypeface(font);
+        btnHome.setTypeface(font);
 
         btnContinue.setOnClickListener(new View.OnClickListener() {
             @Override
