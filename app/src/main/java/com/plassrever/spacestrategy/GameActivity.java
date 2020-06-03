@@ -23,7 +23,7 @@ public class GameActivity extends AppCompatActivity {
 
     public GameLoop gameLoop = new GameLoop();
 
-    ImageAdapter redAdapter, blueAdapter;
+    public static ImageAdapter redAdapter, blueAdapter;
     StoreItemsAdapter storeAdapter;
 
     private int selectedPosition;
@@ -53,7 +53,7 @@ public class GameActivity extends AppCompatActivity {
         redTeamLife.setTypeface(font);
         blueTeamLife.setTypeface(font);
 
-        gameLoop.addCoinsOfTime(redTeamCoinsText, blueTeamCoinsText);
+        gameLoop.addCoinsOfTime(this, redTeamCoinsText, blueTeamCoinsText, redTeamLife, blueTeamLife);
 
         redTeamGrid = findViewById(R.id.redteam_grid);
         blueTeamGrid = findViewById(R.id.blueteam_grid);

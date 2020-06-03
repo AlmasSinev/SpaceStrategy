@@ -1,7 +1,6 @@
 package com.plassrever.spacestrategy;
 
 import android.content.Context;
-import android.media.Image;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -25,6 +24,10 @@ public class ImageAdapter extends BaseAdapter {
 
     public ImageAdapter(Context c){
         mContext = c;
+    }
+
+    public Integer[] getTeam () {
+        return team;
     }
 
     @Override
